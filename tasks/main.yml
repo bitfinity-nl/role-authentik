@@ -39,9 +39,9 @@
 - name: "Generate password for Authentik when /opt/authentik/.env does not exists (Fresh install)"
   raw: "{{ item }}"
   with_items:
-    - 'echo "PG_PASS=$(pwgen -s 40 1)" >> .env'
-    - 'echo "AUTHENTIK_SECRET_KEY=$(pwgen -s 50 1)" >> .env'
-    - 'echo "AUTHENTIK_ERROR_REPORTING__ENABLED=true" >> .env'
+    - 'echo "PG_PASS=$(pwgen -s 40 1)" >> /opt/authentik/.env'
+    - 'echo "AUTHENTIK_SECRET_KEY=$(pwgen -s 50 1)" >> /opt/authentik/.env'
+    - 'echo "AUTHENTIK_ERROR_REPORTING__ENABLED=true" >> /opt/authentik/.env'
   when: not result_env.stat.exists
   
 #- name: "Pull Docker image authentik"
