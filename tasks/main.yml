@@ -30,7 +30,20 @@
   ansible.builtin.get_url:
     url: https://goauthentik.io/docker-compose.yml
     dest: /opt/authentik/docker-compose.yml
-    
+
+- name: "Check if /opt/authentik/.env exist(s)"
+  stat:
+    path: /opt/authentik/.env
+  register: result_env
+  
+- name: "Generate password for Authentik when /opt/authentik/.env does not exists (Fresh install)"
+  raw: "{{ with_items }}
+  with_items:
+    - 'echo "PG_PASS=$(pwgen -s 40 1)" >> .env'
+    - 'echo "AUTHENTIK_SECRET_KEY=$(pwgen -s 50 1)" >> .env'
+    - 'echo "AUTHENTIK_ERROR_REPORTING__ENABLED=true" >> .env'
+  when: not result_env.stat.exists
+  
 #- name: "Pull Docker image authentik"
 #  docker_image:
 #    name:  vaultwarden/server:latest
