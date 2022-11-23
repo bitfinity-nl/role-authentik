@@ -15,6 +15,8 @@
 - name: "Install APT packages"
   apt:
     pkg:
+    - docker
+    - docker-compose
     - docker.io
     - python3-docker
     - pwgen
