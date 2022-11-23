@@ -1,7 +1,30 @@
 ---
-# Ti
+# Title: Authentik
 #
+# Author: Bitfinity / L. Rutten
+# Owner: Bitfinity / L. Rutten
 #
+# File: tasks/main.yml
 #
+# Description:
+#   authentik is an open-source Identity Provider focused on flexibility and versatility.
+#
+
+- hosts: 127.0.0.1
+  connection: local
+  become: true
+  
+  vars:
+  
+  handlers:
+  
+  pre_tasks:
+  
+  roles:
+  
+  tasks:
+    - name: "Include tasks/main.yml"
+      include_tasks: tasks/main.yml
+ 
 
 
