@@ -48,3 +48,35 @@
 #  docker_image:
 #    name:  vaultwarden/server:latest
 #    source: pull
+
+- name: "Configure E-mail configuration, /opt/authentik/.env"
+  ansible.builtin.blockinfile:
+    path: /opt/authentik/.env
+    marker: "\n    #<!-- {mark} ANSIBLE MANAGED BLOCK - E-mail configuration -->"
+    insertafter: "#<!-- END ANSIBLE MANAGED BLOCK - E-mail configuration -->"
+    block: |2
+      # SMTP Host Emails are sent to
+      AUTHENTIK_EMAIL__HOST=localhost
+      AUTHENTIK_EMAIL__PORT=25
+      # Optionally authenticate (don't add quotation marks to your password)
+      AUTHENTIK_EMAIL__USERNAME=
+      AUTHENTIK_EMAIL__PASSWORD=
+      # Use StartTLS
+      AUTHENTIK_EMAIL__USE_TLS=false
+      # Use SSL
+      AUTHENTIK_EMAIL__USE_SSL=false
+      AUTHENTIK_EMAIL__TIMEOUT=10
+      # Email address authentik will send from, should have a correct @domain
+      AUTHENTIK_EMAIL__FROM=authentik@localhost
+#  notify: restart_apache2
+
+- name: "Configure GeoIP configuration, /opt/authentik/.env"
+  ansible.builtin.blockinfile:
+    path: /opt/authentik/.env
+    marker: "\n    #<!-- {mark} ANSIBLE MANAGED BLOCK - GeoIP configuration -->"
+    insertafter: "#<!-- END ANSIBLE MANAGED BLOCK - GeoIP configuration -->"
+    block: |2
+      GEOIPUPDATE_ACCOUNT_ID=*your account ID*
+      GEOIPUPDATE_LICENSE_KEY=* your license key*
+      AUTHENTIK_AUTHENTIK__GEOIP=/geoip/GeoLite2-City.mmdb
+ # notify: restart_apache2
