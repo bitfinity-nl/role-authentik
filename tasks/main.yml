@@ -32,7 +32,7 @@
     dest: /opt/authentik/docker-compose.yml
 
 - name: "Configure /opt/authentik/docker-compose.yml for latest images"
-  ansible.builtin.lineinfile:
+  ansible.builtin.replace:
     path: /opt/authentik/docker-compose.yml
     regexp: ':\${AUTHENTIK_TAG:-.*}'
     replace: ':\${AUTHENTIK_TAG:latest}'
