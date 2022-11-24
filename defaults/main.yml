@@ -1,4 +1,13 @@
 ---
+# Title: Authentik
+#
+# Author: Bitfinity / L. Rutten
+# Owner: Bitfinity / L. Rutten
+#
+# File: defaults/main.yml
+#
+# Description:
+#   authentik is an open-source Identity Provider focused on flexibility and versatility.
 
 # -- SMTP settings --
 # 
