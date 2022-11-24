@@ -23,8 +23,8 @@
     # 
     auth_email_host                : 'localhost'
     auth_email_port                : '587'
-    auth_email_username            : ''
-    auth_email_password            : ''
+    auth_email_username            : 'user@example.com'
+    auth_email_password            : 'Welcome123'
     auth_email_use_tls             : 'false'
     auth_email_use_ssl             : 'false'
     auth_email_timeout             : '10'
