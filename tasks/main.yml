@@ -31,6 +31,13 @@
     url: https://goauthentik.io/docker-compose.yml
     dest: /opt/authentik/docker-compose.yml
 
+- name: "Configure /opt/authentik/docker-compose.yml for latest images"
+  ansible.builtin.lineinfile:
+    path: /opt/authentik/docker-compose.yml
+    regexp: ':\${AUTHENTIK_TAG:-.*}'
+    replace: ':\${AUTHENTIK_TAG:latest}'
+    backup: true
+
 - name: "Check if /opt/authentik/.env exist(s)"
   stat:
     path: /opt/authentik/.env
@@ -43,11 +50,6 @@
     - 'echo "AUTHENTIK_SECRET_KEY=$(pwgen -s 50 1)" >> /opt/authentik/.env'
     - 'echo "AUTHENTIK_ERROR_REPORTING__ENABLED=true" >> /opt/authentik/.env'
   when: not result_env.stat.exists
-  
-#- name: "Pull Docker image authentik"
-#  docker_image:
-#    name:  vaultwarden/server:latest
-#    source: pull
 
 - name: "Configure E-mail configuration, /opt/authentik/.env"
   ansible.builtin.blockinfile:
@@ -88,3 +90,4 @@
 
 - ansible.builtin.debug:
     var: output
+
