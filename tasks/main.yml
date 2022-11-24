@@ -35,7 +35,7 @@
   ansible.builtin.replace:
     path: /opt/authentik/docker-compose.yml
     regexp: ':\${AUTHENTIK_TAG:-.*}'
-    replace: ':\${AUTHENTIK_TAG:latest}'
+    replace: ':latest'
     backup: true
 
 - name: "Check if /opt/authentik/.env exist(s)"
