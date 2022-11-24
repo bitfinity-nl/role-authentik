@@ -80,3 +80,11 @@
       GEOIPUPDATE_LICENSE_KEY={{ auth_geopipupdate_license_key }}
       AUTHENTIK_AUTHENTIK__GEOIP={{ auth_authentik_authentik_geoip }}
  # notify: restart_apache2
+
+- name: "Create and start services"
+  community.docker.docker_compose:
+    project_src: /opt/authentik/docker-compose.yml
+  register: output
+
+- ansible.builtin.debug:
+    var: output
