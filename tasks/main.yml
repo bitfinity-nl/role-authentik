@@ -83,7 +83,7 @@
 
 - name: "Create and start services"
   community.docker.docker_compose:
-    project_src: /opt/authentik/docker-compose.yml
+    project_src: /opt/authentik/
   register: output
 
 - ansible.builtin.debug:
