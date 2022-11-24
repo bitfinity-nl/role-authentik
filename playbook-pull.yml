@@ -15,6 +15,7 @@
   become: true
   
   vars:
+    auth_email_port                : '587'
   
   handlers:
   
