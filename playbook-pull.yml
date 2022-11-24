@@ -19,6 +19,8 @@
   handlers:
   
   pre_tasks:
+    - name: "Include defaults file defaults/main.yml"
+      include_vars: defaults/configuration.yml
   
   roles:
   
