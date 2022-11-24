@@ -56,18 +56,18 @@
     insertafter: "#<!-- END ANSIBLE MANAGED BLOCK - E-mail configuration -->"
     block: |2
       # SMTP Host Emails are sent to
-      AUTHENTIK_EMAIL__HOST="{{ auth_email_host }}"
-      AUTHENTIK_EMAIL__PORT="{{ auth_email_port }}"
+      AUTHENTIK_EMAIL__HOST={{ auth_email_host }}
+      AUTHENTIK_EMAIL__PORT={{ auth_email_port }}
       # Optionally authenticate (don't add quotation marks to your password)
-      AUTHENTIK_EMAIL__USERNAME="{{ auth_email_username }}"
-      AUTHENTIK_EMAIL__PASSWORD="{{ auth_email_password }}"
+      AUTHENTIK_EMAIL__USERNAME={{ auth_email_username }}
+      AUTHENTIK_EMAIL__PASSWORD={{ auth_email_password }}
       # Use StartTLS
-      AUTHENTIK_EMAIL__USE_TLS="{{ auth_email_use_tls }}"
+      AUTHENTIK_EMAIL__USE_TLS={{ auth_email_use_tls }}
       # Use SSL
-      AUTHENTIK_EMAIL__USE_SSL="{{ auth_email_use_ssl }}"
-      AUTHENTIK_EMAIL__TIMEOUT="{{ auth_email_timeout }}"
+      AUTHENTIK_EMAIL__USE_SSL={{ auth_email_use_ssl }}
+      AUTHENTIK_EMAIL__TIMEOUT={{ auth_email_timeout }}
       # Email address authentik will send from, should have a correct @domain
-      AUTHENTIK_EMAIL__FROM="{{ auth_email_from }}"
+      AUTHENTIK_EMAIL__FROM={{ auth_email_from }}
 #  notify: restart_apache2
 
 - name: "Configure GeoIP configuration, /opt/authentik/.env"
@@ -76,7 +76,7 @@
     marker: "#<!-- {mark} ANSIBLE MANAGED BLOCK - GeoIP configuration -->"
     insertafter: "#<!-- END ANSIBLE MANAGED BLOCK - GeoIP configuration -->"
     block: |2
-      GEOIPUPDATE_ACCOUNT_ID="{{ auth_geopipupdate_account_id }}"
-      GEOIPUPDATE_LICENSE_KEY="{{ auth_geopipupdate_license_key }}"
-      AUTHENTIK_AUTHENTIK__GEOIP="{{ auth_authentik_authentik_geoip }}"
+      GEOIPUPDATE_ACCOUNT_ID={{ auth_geopipupdate_account_id }}
+      GEOIPUPDATE_LICENSE_KEY={{ auth_geopipupdate_license_key }}
+      AUTHENTIK_AUTHENTIK__GEOIP={{ auth_authentik_authentik_geoip }}
  # notify: restart_apache2
