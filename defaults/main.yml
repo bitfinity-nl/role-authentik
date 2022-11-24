@@ -1,0 +1,18 @@
+---
+
+# -- SMTP settings --
+# 
+auth_email_host                : 'localhost'
+auth_email_port                : '25'
+auth_email_username            : ''
+auth_email_password            : ''
+auth_email_use_tls             : 'false'
+auth_email_use_ssl             : 'false'
+auth_email_timeout             : '10'
+auth_email_from                : 'authentik@localhost'
+
+# -- GeoIP settings --
+#
+auth_geopipupdate_account_id   : '*your account ID*'
+auth_geopipupdate_license_key  : '* your license key*'
+auth_authentik_authentik_geoip : '/geoip/GeoLite2-City.mmdb'
