@@ -52,7 +52,7 @@
 - name: "Configure E-mail configuration, /opt/authentik/.env"
   ansible.builtin.blockinfile:
     path: /opt/authentik/.env
-    marker: "\n    #<!-- {mark} ANSIBLE MANAGED BLOCK - E-mail configuration -->"
+    marker: "#<!-- {mark} ANSIBLE MANAGED BLOCK - E-mail configuration -->"
     insertafter: "#<!-- END ANSIBLE MANAGED BLOCK - E-mail configuration -->"
     block: |2
       # SMTP Host Emails are sent to
@@ -73,7 +73,7 @@
 - name: "Configure GeoIP configuration, /opt/authentik/.env"
   ansible.builtin.blockinfile:
     path: /opt/authentik/.env
-    marker: "\n    #<!-- {mark} ANSIBLE MANAGED BLOCK - GeoIP configuration -->"
+    marker: "#<!-- {mark} ANSIBLE MANAGED BLOCK - GeoIP configuration -->"
     insertafter: "#<!-- END ANSIBLE MANAGED BLOCK - GeoIP configuration -->"
     block: |2
       GEOIPUPDATE_ACCOUNT_ID=*your account ID*
