@@ -23,7 +23,8 @@
   ProxyPassReverse / http://localhost:9000/
 
 #  RequestHeader set "Host" "{{ apache2_serveralias }}"
-  
+  ProxyPreserveHost On
+  ProxyAddHeaders On  
   RequestHeader set "X-Forwarded-Proto" expr=%{REQUEST_SCHEME}
   RequestHeader set "X-Forwarded-SSL" expr=%{HTTPS}
 
