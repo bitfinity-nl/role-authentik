@@ -49,6 +49,7 @@
     apache2_cert_keyfile         : '/etc/letsencrypt/live/{{ certbot_serveralias }}/privkey.pem'
 
   handlers:
+    - include: handlers/main.yml
     
   roles:
     - role-certbot-apache2
