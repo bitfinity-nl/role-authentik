@@ -45,8 +45,9 @@
     #apache2_allow_from_dir_admin : '10.1.0.0/24'
     apache2_servername           : '{{ certbot_servername }}'
     apache2_serveradmin          : '{{ certbot_serveradmin }}'
-    apache2_cert_file            : '/etc/letsencrypt/live/{{ certbot_serveralias }}/fullchain.pem'
-    apache2_cert_keyfile         : '/etc/letsencrypt/live/{{ certbot_serveralias }}/privkey.pem'
+    apache2_serveralias          : '{{ certbot_serveralias }}'
+    apache2_cert_file            : '/etc/letsencrypt/live/{{ apache2_serveralias }}/fullchain.pem'
+    apache2_cert_keyfile         : '/etc/letsencrypt/live/{{ apache2_serveralias }}/privkey.pem'
 
   handlers:
     - include: handlers/main.yml
