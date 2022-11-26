@@ -45,8 +45,8 @@
     - role-certbot-apache2
   
   tasks:
-    #- name: "Include tasks/main.yml"
-    #  include_tasks: tasks/main.yml
+    - name: "Include tasks/main.yml"
+      include_tasks: tasks/main.yml
  
 
 
