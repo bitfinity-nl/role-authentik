@@ -39,6 +39,15 @@
     auth_geopipupdate_license_key  : '* your license key*'
     auth_authentik_authentik_geoip : '/geoip/GeoLite2-City.mmdb'
   
+    # -- Apache2 settings--
+    apache2_application_name     : 'Authentik'
+    apache2_documentroot         : '/var/www/html'
+    #apache2_allow_from_dir_admin : '10.1.0.0/24'
+    apache2_servername           : '{{ cert_servername }}'
+    apache2_serveradmin          : '{{ cert_serveradmin }}'
+    apache2_cert_file            : '{{ cert_fullchain }}'
+    apache2_cert_keyfile         : '{{ cert_private_key }}'
+
   handlers:
     
   roles:
