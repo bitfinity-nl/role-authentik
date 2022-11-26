@@ -48,9 +48,6 @@
     apache2_cert_file            : '/etc/letsencrypt/live/{{ certbot_serveralias }}/fullchain.pem'
     apache2_cert_keyfile         : '/etc/letsencrypt/live/{{ certbot_serveralias }}/privkey.pem'
 
-
-
-
   handlers:
     
   roles:
