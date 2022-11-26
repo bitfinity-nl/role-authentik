@@ -22,10 +22,10 @@
   ProxyPass / http://localhost:9000/
   ProxyPassReverse / http://localhost:9000/
 
+  X-Forwarded-Host
 
-
-#        proxy_pass https://authentik;
-#        proxy_http_version 1.1;
+##        proxy_pass https://authentik;
+##        proxy_http_version 1.1;
 #        proxy_set_header X-Forwarded-Proto $scheme;
 #        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 #        proxy_set_header Host $host;
