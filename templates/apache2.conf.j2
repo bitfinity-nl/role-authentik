@@ -13,28 +13,26 @@
   ServerName {{ apache2_servername }}
   ServerAdmin {{ apache2_serveradmin }}
 
-  ProxyPass / http://localhost:9000/
-  ProxyPassReverse / http://localhost:9000/
-
-
   RewriteEngine on
   RewriteCond ${HTTP:Upgrade} websocket [NC]
   RewriteCond ${HTTP:Connection} upgrade [NC]
   RewriteRule .* "wss:/localhost:9000/$1" [P,L]
   
- 
-#  RequestHeader set "Host" "{{ apache2_serveralias }}"
-  ProxyPreserveHost On
-  ProxyAddHeaders On
-#  RequestHeader set X-Forwarded-Proto "https"
-  RequestHeader set "X-Forwarded-Proto" expr=%{REQUEST_SCHEME}
-  RequestHeader set "X-Forwarded-SSL" expr=%{HTTPS}
+  ProxyPass / http://localhost:9000/
+  ProxyPassReverse / http://localhost:9000/
+  ProxyRequests off
+  
+#  ProxyPreserveHost On
+#  ProxyAddHeaders On
+##  RequestHeader set X-Forwarded-Proto "https"
+#  RequestHeader set "X-Forwarded-Proto" expr=%{REQUEST_SCHEME}
+#  RequestHeader set "X-Forwarded-SSL" expr=%{HTTPS}
 
   SSLEngine On
   SSLCertificateFile	{{ apache2_cert_file }}
   SSLCertificateKeyFile {{ apache2_cert_keyfile }}
 
-  SSLProxyEngine On
+#  SSLProxyEngine On
  
   ErrorLog ${APACHE_LOG_DIR}/error.log
   CustomLog ${APACHE_LOG_DIR}/access.log combined
