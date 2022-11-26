@@ -26,11 +26,7 @@
   
   RequestHeader set "X-Forwarded-Proto" expr=%{REQUEST_SCHEME}
   RequestHeader set "X-Forwarded-SSL" expr=%{HTTPS}
-  proxy_http_version 1.1;
-  proxy_set_header Upgrade $http_upgrade;
-  proxy_set_header Connection "Upgrade";
-  proxy_set_header Host $host;
-        
+
 ##        proxy_pass https://authentik;
 ##        proxy_http_version 1.1;
 ##        proxy_set_header X-Forwarded-Proto $scheme;
