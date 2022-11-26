@@ -17,7 +17,10 @@
   pre_tasks:
     #- name: "Include defaults file defaults/main.yml"
     #  include_vars: defaults/main.yml
-      
+
+    - name: "Include defaults file /root/.ansible-config.yml"
+      include_vars: /root/.ansible-config.yml
+    
   vars:
     # -- SMTP settings --
     # 
