@@ -42,7 +42,7 @@
   handlers:
     
   roles:
-    - role-apache2
+    - role-certbot-apache2
   
   tasks:
     #- name: "Include tasks/main.yml"
