@@ -23,6 +23,7 @@
     - proxy_http
     - rewrite
     - ssl
+    - headers
  # notify: restart_apache2
 
 - name: "Transfer templates"
