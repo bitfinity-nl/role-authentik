@@ -10,6 +10,7 @@
 #   authentik is an open-source Identity Provider focused on flexibility and versatility.
 #
 # Source(s):
+#   - https://goauthentik.io/docs/installation/docker-compose
 #   - https://www.serverlab.ca/tutorials/linux/web-servers-linux/how-to-reverse-proxy-websockets-with-apache-2-4/
 
 - hosts: 127.0.0.1
