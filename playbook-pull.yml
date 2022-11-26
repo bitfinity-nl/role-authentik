@@ -49,6 +49,6 @@
       include_tasks: tasks/01-authentik.yml
  
     - name: "Include tasks/02-apache2.yml"
-      include_tasks: tasks/01-apache2.yml
+      include_tasks: tasks/02-apache2.yml
 
 
