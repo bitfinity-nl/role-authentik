@@ -24,6 +24,7 @@
     - rewrite
     - ssl
     - headers
+    - proxy_wstunnel
  # notify: restart_apache2
 
 - name: "Transfer templates"
