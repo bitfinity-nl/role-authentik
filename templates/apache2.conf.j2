@@ -22,7 +22,7 @@
   ProxyPass / http://localhost:9000/
   ProxyPassReverse / http://localhost:9000/
 
-  X-Forwarded-Host
+  RequestHeader set X-Forwarded-Host {{ apache2_servername }}
 
 ##        proxy_pass https://authentik;
 ##        proxy_http_version 1.1;
