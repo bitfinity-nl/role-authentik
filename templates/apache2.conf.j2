@@ -13,30 +13,23 @@
   ServerName {{ apache2_servername }}
   ServerAdmin {{ apache2_serveradmin }}
 
-  ServerSignature Off
+  ProxyPass / http://localhost:9000/
+  ProxyPassReverse / http://localhost:9000/
+
+
+#  RequestHeader set "Host" "{{ apache2_serveralias }}"
   ProxyPreserveHost On
+  ProxyAddHeaders On
+#  RequestHeader set X-Forwarded-Proto "https"
+  RequestHeader set "X-Forwarded-Proto" expr=%{REQUEST_SCHEME}
+  RequestHeader set "X-Forwarded-SSL" expr=%{HTTPS}
+
   SSLEngine On
   SSLCertificateFile	{{ apache2_cert_file }}
   SSLCertificateKeyFile {{ apache2_cert_keyfile }}
 
-  ProxyPass / http://localhost:9000/
-  ProxyPassReverse / http://localhost:9000/
-
-#  RequestHeader set "Host" "{{ apache2_serveralias }}"
-  ProxyPreserveHost On
-  ProxyAddHeaders On  
-  RequestHeader set "X-Forwarded-Proto" expr=%{REQUEST_SCHEME}
-  RequestHeader set "X-Forwarded-SSL" expr=%{HTTPS}
-
-##        proxy_pass https://authentik;
-##        proxy_http_version 1.1;
-##        proxy_set_header X-Forwarded-Proto $scheme;
-#        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-##        proxy_set_header Host $host;
-##        proxy_set_header Upgrade $http_upgrade;
-##        proxy_set_header Connection $connection_upgrade_keepalive;
-
-
+  SSLProxyEngine On
+ 
   ErrorLog ${APACHE_LOG_DIR}/error.log
   CustomLog ${APACHE_LOG_DIR}/access.log combined
   
