@@ -43,10 +43,10 @@
     apache2_application_name     : 'Authentik'
     apache2_documentroot         : '/var/www/html'
     #apache2_allow_from_dir_admin : '10.1.0.0/24'
-    apache2_servername           : '{{ cert_servername }}'
-    apache2_serveradmin          : '{{ cert_serveradmin }}'
-    apache2_cert_file            : '{{ cert_fullchain }}'
-    apache2_cert_keyfile         : '{{ cert_private_key }}'
+    apache2_servername           : '{{ certbot_servername }}'
+    apache2_serveradmin          : '{{ certbot_serveradmin }}'
+    apache2_cert_file            : '{{ certbot_fullchain }}'
+    apache2_cert_keyfile         : '{{ certbot_private_key }}'
 
   handlers:
     
