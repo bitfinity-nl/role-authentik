@@ -17,6 +17,12 @@
   ProxyPassReverse / http://localhost:9000/
 
 
+  RewriteEngine on
+  RewriteCond ${HTTP:Upgrade} websocket [NC]
+  RewriteCond ${HTTP:Connection} upgrade [NC]
+  RewriteRule .* "wss:/localhost:9000/$1" [P,L]
+  
+ 
 #  RequestHeader set "Host" "{{ apache2_serveralias }}"
   ProxyPreserveHost On
   ProxyAddHeaders On
