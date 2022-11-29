@@ -25,3 +25,10 @@
         repo: "https://github.com/bitfinity-nl/role-certbot-apache2.git"
         dest: "/etc/ansible/roles/role-certbot-apache2"
         version: main
+
+    - name: "Retrieve Ansible role from https://github.com/bitfinity-nl/role-certbot-apache2.git GIT"
+      git:
+        repo: "https://github.com/bitfinity-nl/role-certbot-nginx.git"
+        dest: "/etc/ansible/roles/role-certbot-nginx"
+        version: main
+
