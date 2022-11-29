@@ -30,5 +30,5 @@
       git:
         repo: "https://github.com/bitfinity-nl/role-certbot-nginx.git"
         dest: "/etc/ansible/roles/role-certbot-nginx"
-        version: main
+        version: master
 
