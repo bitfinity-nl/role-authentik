@@ -51,6 +51,10 @@
     apache2_serveralias          : '{{ certbot_serveralias }}'
     apache2_cert_file            : '/etc/letsencrypt/live/{{ apache2_serveralias }}/fullchain.pem'
     apache2_cert_keyfile         : '/etc/letsencrypt/live/{{ apache2_serveralias }}/privkey.pem'
+    
+    
+    # -- Nginx settings --
+    nginx_server_name            : 'Authentik'
 
   handlers:
     - include: handlers/main.yml
