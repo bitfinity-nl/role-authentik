@@ -54,7 +54,7 @@
     
     
     # -- Nginx settings --
-    nginx_server_name            : 'bitfinity.nl auth.bitfinity.nl'
+    nginx_server_name            : 'auth.bitfinity.nl'
 
   handlers:
     - include: handlers/main.yml
