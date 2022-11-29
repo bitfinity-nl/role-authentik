@@ -22,17 +22,9 @@
   ProxyPassReverse / http://localhost:9000/
   ProxyRequests off
   
-#  ProxyPreserveHost On
-#  ProxyAddHeaders On
-##  RequestHeader set X-Forwarded-Proto "https"
-#  RequestHeader set "X-Forwarded-Proto" expr=%{REQUEST_SCHEME}
-#  RequestHeader set "X-Forwarded-SSL" expr=%{HTTPS}
-
   SSLEngine On
   SSLCertificateFile	{{ apache2_cert_file }}
   SSLCertificateKeyFile {{ apache2_cert_keyfile }}
-
-#  SSLProxyEngine On
  
   ErrorLog ${APACHE_LOG_DIR}/error.log
   CustomLog ${APACHE_LOG_DIR}/access.log combined
