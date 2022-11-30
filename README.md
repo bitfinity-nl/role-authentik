@@ -11,6 +11,6 @@ ansible-pull -U https://github.com/bitfinity-nl/role-authentik.git playbook-pull
 ``
 
 
-``
+```
 ansible-pull -U https://github.com/bitfinity-nl/role-authentik.git requirements.yml ; ansible-pull -U https://github.com/bitfinity-nl/role-authentik.git playbook-pull.yml
-``
+```
