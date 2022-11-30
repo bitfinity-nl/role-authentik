@@ -52,6 +52,10 @@
     apache2_cert_file            : '/etc/letsencrypt/live/{{ apache2_serveralias }}/fullchain.pem'
     apache2_cert_keyfile         : '/etc/letsencrypt/live/{{ apache2_serveralias }}/privkey.pem'
     
+    certbot_servername   : 'bitfinity.nl'
+    certbot_serveralias  : 'auth.bitfinity.nl'
+    certbot_serveradmin  : 'support@bitfinity.nl'
+    certbot_documentroot : '/var/www/html'
     
     # -- Nginx settings --
     nginx_server_name            : 'auth.bitfinity.nl'
