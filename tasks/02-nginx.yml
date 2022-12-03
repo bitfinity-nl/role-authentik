@@ -19,12 +19,12 @@
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
   with_items:
-    - { src: 'templates/authentik.conf.j2', dest: '/etc/apache2/sites-available/{{ apache2_application_name }}.conf' }
+    - { src: 'templates/authentik.conf.j2', dest: '/etc/nginx/sites-available/{{ apache2_application_name }}.conf' }
 
 - name: "Enable {{ apache2_application_name }}.conf"
   file:
-    src: /etc/apache2/sites-available/{{ apache2_application_name }}.conf
-    dest: /etc/apache2/sites-enabled/{{ apache2_application_name }}.conf
+    src: /etc/nginx/sites-available/{{ apache2_application_name }}.conf
+    dest: /etc/nginx/sites-enabled/{{ apache2_application_name }}.conf
     state: link
 
 
