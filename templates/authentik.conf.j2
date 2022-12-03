@@ -1,6 +1,6 @@
 # Upstream where your authentik server is hosted.
 upstream authentik {
-    server <hostname of your authentik server>:9443;
+    server {{ certbot_serveralias }}:9443;
     # Improve performance by keeping some connections alive.
     keepalive 10;
 }
@@ -14,7 +14,7 @@ map $http_upgrade $connection_upgrade_keepalive {
 server {
     # HTTP server config
     listen 80;
-    server_name sso.domain.tld;
+    server_name {{ certbot_serveralias }};
 
     # 301 redirect to HTTPS
     location / {
@@ -24,11 +24,11 @@ server {
 server {
     # HTTPS server config
     listen 443 ssl http2;
-    server_name sso.domain.tld;
+    server_name {{ certbot_serveralias }};
 
     # TLS certificates
-    ssl_certificate /etc/letsencrypt/live/domain.tld/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/domain.tld/privkey.pem;
+    ssl_certificate /etc/letsencrypt/live/{{ certbot_serveralias }}/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/{{ certbot_serveralias }}/privkey.pem;
 
     # Proxy site
     location / {
