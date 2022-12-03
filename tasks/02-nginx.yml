@@ -1,0 +1,30 @@
+---
+# Title: Authentik
+#
+# Author: Bitfinity / L. Rutten
+# Owner: Bitfinity / L. Rutten
+#
+# File: tasks/02-apache2.yml
+#
+# Description:
+#   authentik is an open-source Identity Provider focused on flexibility and versatility.
+#
+- name: "Install APT packages"
+  apt:
+    pkg:
+    - nginx
+
+- name: "Transfer templates"
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  with_items:
+    - { src: 'templates/nginx.conf.j2', dest: '/etc/apache2/sites-available/{{ apache2_application_name }}.conf' }
+
+- name: "Enable {{ apache2_application_name }}.conf"
+  file:
+    src: /etc/apache2/sites-available/{{ apache2_application_name }}.conf
+    dest: /etc/apache2/sites-enabled/{{ apache2_application_name }}.conf
+    state: link
+
+
