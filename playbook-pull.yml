@@ -74,4 +74,6 @@
     #- name: "Include tasks/02-apache2.yml"
     #  include_tasks: tasks/02-apache2.yml
 
+    - name: "Include tasks/02-nginx.yml"
+      include_tasks: tasks/02-nginx.yml
 
