@@ -58,7 +58,6 @@
     - include: handlers/main.yml
     
   roles:
-    #- role-certbot-apache2
     - role-certbot-nginx
     
   tasks:
