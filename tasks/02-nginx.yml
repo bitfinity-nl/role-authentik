@@ -22,7 +22,7 @@
   with_items:
     - { src: 'templates/authentik.conf.j2', dest: '/etc/nginx/sites-available/default' }
     
-- name: "Enable {{ certbot_serveralias }}.conf"
+- name: "Enable Nginx configuration {{ certbot_serveralias }}"
   file:
     src: /etc/nginx/sites-available/default
     dest: /etc/nginx/sites-enabled/default
