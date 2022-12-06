@@ -18,13 +18,16 @@
   template:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
+    backup: yes
   with_items:
-    - { src: 'templates/authentik.conf.j2', dest: '/etc/nginx/sites-available/{{ certbot_serveralias }}.conf' }
-
+    - { src: 'templates/authentik.conf.j2', dest: '/etc/nginx/sites-available/default.conf' }
+  notify: restart_nginx  
+    
 - name: "Enable {{ certbot_serveralias }}.conf"
   file:
-    src: /etc/nginx/sites-available/{{ certbot_serveralias }}.conf
-    dest: /etc/nginx/sites-enabled/{{ certbot_serveralias }}.conf
+    src: /etc/nginx/sites-available/default.conf
+    dest: /etc/nginx/sites-enabled/default.conf
     state: link
+  notify: restart_nginx    
 
 
