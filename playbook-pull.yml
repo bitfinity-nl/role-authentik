@@ -42,23 +42,17 @@
     auth_geopipupdate_license_key  : '* your license key*'
     auth_authentik_authentik_geoip : '/geoip/GeoLite2-City.mmdb'
   
-    # -- Apache2 settings--
-    apache2_application_name     : 'Authentik'
-    apache2_documentroot         : '/var/www/html'
-    #apache2_allow_from_dir_admin : '10.1.0.0/24'
-    apache2_servername           : '{{ certbot_servername }}'
-    apache2_serveradmin          : '{{ certbot_serveradmin }}'
-    apache2_serveralias          : '{{ certbot_serveralias }}'
-    apache2_cert_file            : '/etc/letsencrypt/live/{{ apache2_serveralias }}/fullchain.pem'
-    apache2_cert_keyfile         : '/etc/letsencrypt/live/{{ apache2_serveralias }}/privkey.pem'
-    
-    certbot_servername   : 'bitfinity.nl'
-    certbot_serveralias  : 'auth.bitfinity.nl'
-    certbot_serveradmin  : 'support@bitfinity.nl'
-    certbot_documentroot : '/var/www/html'
+    # -- role-certbot-nginx settings --
+    certbot_servername             : 'bitfinity.nl'
+    certbot_serveralias            : 'auth.bitfinity.nl'
+    certbot_serveradmin            : 'support@bitfinity.nl'
+    certbot_documentroot           : '/var/www/html'
     
     # -- Nginx settings --
-    nginx_server_name            : 'auth.bitfinity.nl'
+    nginx_server_name              : '{{ certbot_servername }}'
+    nginx_server_alias             : '{{ certbot_serveralias }}'
+    nginx_server_cert_file         : '/etc/letsencrypt/live/{{ certbot_serveralias }}/fullchain.pem'
+    nginx_server_cert_key_file     : '/etc/letsencrypt/live/{{ certbot_serveralias }}/privkey.pem'
 
   handlers:
     - include: handlers/main.yml
@@ -71,9 +65,5 @@
     - name: "Include tasks/01-authentik.yml"
       include_tasks: tasks/01-authentik.yml
  
-    #- name: "Include tasks/02-apache2.yml"
-    #  include_tasks: tasks/02-apache2.yml
-
-    #- name: "Include tasks/02-nginx.yml"
-    #  include_tasks: tasks/02-nginx.yml
-
+    - name: "Include tasks/02-nginx.yml"
+      include_tasks: tasks/02-nginx.yml
