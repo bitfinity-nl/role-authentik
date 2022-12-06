@@ -21,13 +21,13 @@
     backup: yes
   with_items:
     - { src: 'templates/authentik.conf.j2', dest: '/etc/nginx/sites-available/default.conf' }
-  notify: restart_nginx  
+
     
 - name: "Enable {{ certbot_serveralias }}.conf"
   file:
     src: /etc/nginx/sites-available/default.conf
     dest: /etc/nginx/sites-enabled/default.conf
     state: link
-  notify: restart_nginx    
+    
 
 
