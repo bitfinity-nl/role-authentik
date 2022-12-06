@@ -9,14 +9,14 @@
 # Description:
 #   authentik is an open-source Identity Provider focused on flexibility and versatility.
 #
-- name: "restart_apache2"
+- name: "restart_nginx"
   systemd:
     state: restarted
     daemon_reload: yes
     enabled: yes
     name: nginx
 
-- name: "reload_apache2"
+- name: "reload_nginx"
   systemd:
     daemon_reload: yes
     name: nginx
