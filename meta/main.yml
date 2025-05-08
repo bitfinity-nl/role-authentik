@@ -8,7 +8,7 @@ dependencies:
 galaxy_info:
   role_name: role-authentik
   author: Bitfinity / L. Rutten
-  description: Authentik is an open source identity provider build on docker.
+  description: Authentik is an open-source Identity Provider focused on flexibility and versatility.
   company: "Bitfinity"
   license: "license (BSD, MIT)"
   min_ansible_version: 2.10
