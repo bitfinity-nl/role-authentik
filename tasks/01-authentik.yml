@@ -18,7 +18,7 @@
     #- docker
     #- docker-compose
     #- docker.io
-    #- python3-docker
+    - python3-docker
     - pwgen
     
 - name: "Create directory for local authentik /opt/authentik/"
