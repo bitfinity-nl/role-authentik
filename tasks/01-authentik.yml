@@ -18,7 +18,7 @@
     #- docker
     #- docker-compose
     #- docker.io
-    - python3-docker
+    #- python3-docker
     - pwgen
     
 - name: "Create directory for local authentik /opt/authentik/"
@@ -82,11 +82,17 @@
       GEOIPUPDATE_LICENSE_KEY={{ auth_geopipupdate_license_key }}
       AUTHENTIK_AUTHENTIK__GEOIP={{ auth_authentik_authentik_geoip }}
  # notify: restart_apache2
-
-- name: "Create and start services"
-  community.docker.docker_compose:
-    project_src: /opt/authentik/
+ 
+- name: "Create and start services on '{{ ansible_hostname }}'"
+  ansible.builtin.command: docker compose up -d
+  args:
+    chdir: /opt/authentik/
   register: output
+
+#- name: "Create and start services"
+#  community.docker.docker_compose:
+#    project_src: /opt/authentik/
+#  register: output
 
 - ansible.builtin.debug:
     var: output
