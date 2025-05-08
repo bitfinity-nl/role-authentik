@@ -29,8 +29,8 @@ server {
     # TLS certificates
     ssl_certificate {{ nginx_server_cert_file }};
     ssl_certificate_key {{ nginx_server_cert_key_file }};
-    include /etc/letsencrypt/options-ssl-nginx.conf;
-    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+    # include /etc/letsencrypt/options-ssl-nginx.conf;
+    # ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
 
     # Proxy site
     location / {
