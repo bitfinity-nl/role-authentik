@@ -30,4 +30,8 @@
     state: link
   notify: restart_nginx
 
+- name: "UFW allow Nginx full on host '{{ ansible_hostname }}'"
+  community.general.ufw:
+    rule: allow
+    name: Nginx Full
 
