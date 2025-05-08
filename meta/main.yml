@@ -1,0 +1,23 @@
+---
+dependencies:
+  - src: https://github.com/bitfinity-nl/role-docker-engine.git
+    scm: git
+    version: main
+    name: role-docker-engine
+
+galaxy_info:
+  role_name: role-authentik
+  author: Bitfinity / L. Rutten
+  description: Authentik is an open source identity provider build on docker.
+  company: "Bitfinity"
+  license: "license (BSD, MIT)"
+  min_ansible_version: 2.10
+  platforms:
+    - name: Ubuntu
+      versions:
+        - all
+  galaxy_tags:
+    - os
+    - ubuntu
+    - identityprovider
+    - authentication
