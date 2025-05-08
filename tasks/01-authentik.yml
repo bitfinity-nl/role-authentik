@@ -13,7 +13,7 @@
 #   - https://goauthentik.io/docs/installation/docker-compose
 
 - name: "Install APT packages"
-  apt:
+  ansible.builtin.apt:
     pkg:
     - docker
     - docker-compose
@@ -22,7 +22,7 @@
     - pwgen
     
 - name: "Create directory for local authentik /opt/authentik/"
-  file:
+  ansible.builtin.file:
     path: /opt/authentik/
     state: directory
 
