@@ -15,10 +15,6 @@
 - name: "Install APT packages"
   ansible.builtin.apt:
     pkg:
-    #- docker
-    #- docker-compose
-    #- docker.io
-    #- python3-docker
     - pwgen
     
 - name: "Create directory for local authentik /opt/authentik/"
