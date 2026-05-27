@@ -27,12 +27,12 @@
     url: https://goauthentik.io/docker-compose.yml
     dest: /opt/authentik/docker-compose.yml
 
-- name: "Configure /opt/authentik/docker-compose.yml for latest images"
-  ansible.builtin.replace:
-    path: /opt/authentik/docker-compose.yml
-    regexp: ':\${AUTHENTIK_TAG:-.*}'
-    replace: ':latest'
-    backup: true
+#- name: "Configure /opt/authentik/docker-compose.yml for latest images"
+#  ansible.builtin.replace:
+#    path: /opt/authentik/docker-compose.yml
+#    regexp: ':\${AUTHENTIK_TAG:-.*}'
+#    replace: ':latest'
+#    backup: true
 
 - name: "Check if /opt/authentik/.env exist(s)"
   stat:
